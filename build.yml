@@ -10,6 +10,12 @@ jobs:
       - name: Исходники
         uses: actions/checkout@v4
 
+      - name: Установить XcodeGen
+        run: brew install xcodegen
+
+      - name: Сгенерировать Xcode-проект
+        run: xcodegen generate
+
       - name: Собрать без подписи
         run: |
           xcodebuild -project SnakeGame.xcodeproj -scheme SnakeGame \
